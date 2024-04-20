@@ -29,7 +29,7 @@ public static class AnimalDapperEndpoints
         }
         else
         {
-            return Results.NotFound("Nie ma takiej kolumny po ktorej bys chcial sortowac!");
+            return Results.NotFound("This column does not exist, cannot sort using it!");
         }
 
         using (var sqlConnection = new SqlConnection(configuration.GetConnectionString("Default")))
@@ -99,7 +99,7 @@ public static class AnimalDapperEndpoints
                 }
             );
 
-            return Results.Created($"/students-dapper/{id}", new CreateAnimalResponse(id, request));
+            return Results.Created($"/animal-dapper/{id}", new CreateAnimalResponse(id, request));
         }
     }
 
